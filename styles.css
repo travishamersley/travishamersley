@@ -1,0 +1,15 @@
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 20px;
+    background-color: var(--surface-ground);
+}
+
+#app {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.p-card {
+    margin-bottom: 1rem;
+} 
