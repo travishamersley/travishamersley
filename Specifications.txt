@@ -1,0 +1,52 @@
+The website should be a single page application that allows the user to manage a Yoseikan Budo Club.
+Supabase is used for the database and authentication.  
+Vue 3 is used for the frontend.
+PrimeVue is used for the UI components.
+The site is host on github pages.  All backend code must be run in Supabase, I would prefer any business logic be run as Edge Functions in Supabase.
+RLS will be used to restrict access to the database.
+
+Requirement 1:
+The website should have a login page that allows the user to login with their email and password, it can also other common methods like google, github supported by Supabase.
+
+Requirement 2:
+The public landing page should allow members to sign up.  Members will attend classes and pay dues.  They will also be able to view their attendance and dues history. They will be able to purchase items from the club store.
+
+Requirement 3:
+Onced logged in members will be able to view their profile, attendance, and dues history.  They will also be able to purchase items from the club store.
+
+Requirement 4:
+Administrators will be able to view all members, attendance, and dues history.  They will also be able to view the club store inventory and sales.
+
+Requirement 5:
+there should be a screen that allows starting a class that then allows the user to check in members as they arrive.  payment for classes is done in cash so the app only need to track how much was paid.  Some members may pay extra so the system will need to track credits and allow a member to pay with credits.
+We also allow members to pay after classes and go into debt.  The system will need to quickly reflect how much a member owes or how much credit they have.  It is important that we track the dates of any payments and for attendance.
+
+
+Entity definitions: 
+Note: all fields use lower case and snake_case.
+Member - represents a member of the club 
+id int, identity
+created_at timestamp
+first_name string
+last_name string
+parent string
+dob date (date of birth)
+primary_phone string
+secondary_phone string
+email string
+address_line1 string
+address_suburb string
+
+Attendance - represents a record of a member attending a class
+id number, identity
+member_id bigint
+created_at timestamp with time zone
+payment_id int - Foreign key to Payment table
+
+Payment - represents a payment made by a member - this 
+id number, identity
+created_at timestamp with time zone
+payment_type string - cash, credit, etc
+amount float
+member_id bigint - Foreign key to Member table
+
