@@ -8,16 +8,20 @@ import Card from 'primevue/card'
 import Divider from 'primevue/divider'
 import Toast from 'primevue/toast'
 import ToastService from 'primevue/toastservice'
+import Calendar from 'primevue/calendar'
 
 import App from './App.vue'
 import Login from './components/Login.vue'
+import LandingPage from './components/LandingPage.vue'
+import Signup from './components/Signup.vue'
 
 // Create router
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/', component: Login },
+    { path: '/', component: LandingPage },
     { path: '/login', component: Login },
+    { path: '/signup', component: Signup },
     // Add more routes as needed
   ]
 })
@@ -37,5 +41,6 @@ app.component('Password', Password)
 app.component('Card', Card)
 app.component('Divider', Divider)
 app.component('Toast', Toast)
+app.component('Calendar', Calendar)
 
 app.mount('#app') 

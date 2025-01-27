@@ -10,6 +10,7 @@ The website should have a login page that allows the user to login with their em
 
 Requirement 2:
 The public landing page should allow members to sign up.  Members will attend classes and pay dues.  They will also be able to view their attendance and dues history. They will be able to purchase items from the club store.
+Signing up should also add the member as a user in Supabase with a default role.
 
 Requirement 3:
 Onced logged in members will be able to view their profile, attendance, and dues history.  They will also be able to purchase items from the club store.
