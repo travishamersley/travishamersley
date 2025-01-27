@@ -17,7 +17,7 @@ import Signup from './components/Signup.vue'
 
 // Create router
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     { path: '/', component: LandingPage },
     { path: '/login', component: Login },

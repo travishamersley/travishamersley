@@ -4,7 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [vue()],
-  base: './', // This ensures assets are loaded correctly when deployed to GitHub Pages
+  base: '/travishamersley/', // Replace with your repository name
   build: {
     sourcemap: true,
     assetsDir: 'assets',
