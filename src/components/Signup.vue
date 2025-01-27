@@ -165,26 +165,21 @@ const handleSignup = async () => {
 
   loading.value = true
   try {
-    // Create the auth user with metadata
+    // First create the auth user
     const { data: authData, error: authError } = await supabase.auth.signUp({
       email: form.email,
-      password: form.password,
-      options: {
-        data: {
-          first_name: form.firstName,
-          last_name: form.lastName,
-          role: 'member' // Add default role in metadata
-        }
-      }
+      password: form.password
     })
 
     if (authError) throw authError
+    if (!authData.user?.id) throw new Error('No user ID returned')
+
+    console.log('Auth user created:', authData.user.id) // Debug log
 
     // Then create the member profile
     const { error: profileError } = await supabase
-      .from('members')
-      .insert({
-        id: authData.user?.id,
+      .from('Member')
+      .insert({        
         first_name: form.firstName,
         last_name: form.lastName,
         dob: form.dob,
@@ -194,7 +189,10 @@ const handleSignup = async () => {
         address_suburb: form.addressSuburb
       })
 
-    if (profileError) throw profileError
+    if (profileError) {
+      console.error('Profile creation error:', profileError) // Debug log
+      throw profileError
+    }
 
     toast.add({
       severity: 'success',
@@ -205,6 +203,7 @@ const handleSignup = async () => {
 
     router.push('/login')
   } catch (error: any) {
+    console.error('Signup error:', error) // Debug log
     toast.add({
       severity: 'error',
       summary: 'Error',

@@ -2,6 +2,14 @@
   <div class="landing-page">
     <header class="header">
       <div class="header-content">
+        <div class="header-top">
+          <Button 
+            label="Login" 
+            @click="navigateToLogin" 
+            class="p-button-text p-button-lg"
+            style="color: white;"
+          />
+        </div>
         <h1>Welcome to Yoseikan Budo Club</h1>
         <p class="subtitle">Join our community of martial artists</p>
         <Button label="Sign Up Now" @click="navigateToSignup" class="p-button-lg" />
@@ -54,6 +62,10 @@ const router = useRouter()
 
 const navigateToSignup = () => {
   router.push('/signup')
+}
+
+const navigateToLogin = () => {
+  router.push('/login')
 }
 </script>
 
@@ -113,5 +125,11 @@ const navigateToSignup = () => {
 
 .feature-card ::v-deep(.p-card-header) {
   padding-top: 1.5rem;
+}
+
+.header-top {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 </style> 

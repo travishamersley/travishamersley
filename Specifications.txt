@@ -13,7 +13,8 @@ The public landing page should allow members to sign up.  Members will attend cl
 Signing up should also add the member as a user in Supabase with a default role.
 
 Requirement 3:
-Onced logged in members will be able to view their profile, attendance, and dues history.  They will also be able to purchase items from the club store.
+Onced logged in members will be able to view their profile, attendance, and dues history.  They will also be able to purchase items from the club store.  This page should be at a route of dashboad.  The content of the dashboard will depend on the role of the user. 
+Members will only have their own profile and attendance.  Administrators will have access to all members and attendance.  
 
 Requirement 4:
 Administrators will be able to view all members, attendance, and dues history.  They will also be able to view the club store inventory and sales.
